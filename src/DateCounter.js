@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import { useState, useReducer, act } from "react";
 
 
@@ -23,15 +22,9 @@ function reducer(state, action) {
       throw new Error("Unkown action")
   }
 
-  // if (action.type === "inc") return state + 1;
-  // if (action.type === "dec") return state - 1;
-  // if (action.type === "setCount") return action.payload;
 }
 
 function DateCounter() {
-  //const [count, setCount] = useState(0);
-    // const [step, setStep] = useState(1);
-
   const [state, dispatch] = useReducer(reducer, initialState);
   const { count, step } = state;
 
@@ -41,15 +34,10 @@ function DateCounter() {
 
   const dec = function () {
     dispatch({ type: "dec" })
-    // setCount((count) => count - 1);
-    //setCount((count) => count - step);
   };
 
   const inc = function () {
     dispatch({ type: "inc" });
-
-    // setCount((count) => count + 1);
-    //setCount((count) => count + step);
   };
 
   const defineCount = function (e) {
@@ -58,13 +46,10 @@ function DateCounter() {
 
   const defineStep = function (e) {
     dispatch({ type: "setStep", payload: Number(e.target.value) });
-    // setStep(Number(e.target.value));
   };
 
   const reset = function () {
     dispatch({ type: "reset" });
-    // setCount(0);
-    // setStep(1);
   };
 
   return (
